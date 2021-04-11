@@ -1,0 +1,12 @@
+.text-brand {
+    color: #1CC7C1;
+}
+
+.text-description {
+    color: #474F62;
+}
+
+.error {
+    color: red;
+    margin: 10px 5px;
+}
