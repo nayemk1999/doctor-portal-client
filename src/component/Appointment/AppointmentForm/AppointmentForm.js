@@ -16,11 +16,25 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-const AppointmentForm = ({ modalIsOpen, closeModal, booking }) => {
+const AppointmentForm = ({ modalIsOpen, closeModal, booking, selectedDate }) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
-        closeModal()
+        data.service = booking.subject
+        data.date = selectedDate
+        data.create = new Date();
+        fetch('http://localhost:3002/addAppointment', {
+            method: 'POST',
+            headers : {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(success => {
+            if(success){
+                closeModal()
+                alert('Successfully Added Appointment')
+            }
+        })
+        
     };
 
     return (
@@ -35,7 +49,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, booking }) => {
                 <form className='p-4 rounded' onSubmit={handleSubmit(onSubmit)}>
                     <div class="form-row justify-content-center">
                         <div class="form-group col-md-12">
-                            <select id="inputState" class="form-control">
+                            <select defaultValue='' id="inputState" class="form-control">
                                 <option selected>Select Time</option>
                                 <option value={booking.visitingHour}>{booking.visitingHour}</option>
                                 <option value={booking.visitingHour}>{booking.visitingHour}</option>

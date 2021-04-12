@@ -46,7 +46,7 @@ const Bookings = ({selectedDate}) => {
             <h2 className='text-center text-brand'>Available Appointments on {(selectedDate).toDateString('dd, MMMM, yyyy')}</h2>
             <div className='row'>
         {
-            bookingData.map(booking => <Booking key={booking.id} booking = {booking}></Booking>)
+            bookingData.map(booking => <Booking key={booking.id} selectedDate={selectedDate} booking = {booking}></Booking>)
         }
             </div>
         </div>
