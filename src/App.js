@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Home from './component/HomePage/Home/Home';
 import Appointment from './component/Appointment/Appointment/Appointment';
+import Dashboard from './component/Dashboard/Dashboard/Dashboard';
+import AllPatient from './component/Dashboard/AllPatient/AllPatient';
 
 const App = () => {
 
@@ -19,6 +21,15 @@ const App = () => {
         </Route>
         <Route path ='/appointment'>
           <Appointment/>
+        </Route>
+        <Route path ='/dashboard/appointment'>
+          <Dashboard/>
+        </Route>
+        <Route path ='/doctor/dashboard'>
+          <Dashboard/>
+        </Route>
+        <Route path ='/doctor/allPatient'>
+          <AllPatient/>
         </Route>
       </Switch>
     </Router>
