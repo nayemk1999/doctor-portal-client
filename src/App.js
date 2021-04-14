@@ -10,6 +10,7 @@ import Home from './component/HomePage/Home/Home';
 import Appointment from './component/Appointment/Appointment/Appointment';
 import Dashboard from './component/Dashboard/Dashboard/Dashboard';
 import AllPatient from './component/Dashboard/AllPatient/AllPatient';
+import Login from './component/Login/Login/Login';
 
 const App = () => {
 
@@ -18,6 +19,9 @@ const App = () => {
       <Switch>
         <Route exact path ='/'>
           <Home></Home>
+        </Route>
+        <Route path ='/login'>
+          <Login/>
         </Route>
         <Route path ='/appointment'>
           <Appointment/>
